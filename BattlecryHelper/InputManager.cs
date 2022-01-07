@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Collections.Generic;
 using Hearthstone_Deck_Tracker;
 using Core = Hearthstone_Deck_Tracker.API.Core;
-using System.Windows.Media;
 
 namespace HDT.Plugins.BattlecryHelper
 {

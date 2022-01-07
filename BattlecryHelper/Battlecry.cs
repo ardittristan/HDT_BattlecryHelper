@@ -1,11 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.ComponentModel;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Collections.Generic;
-using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.API;
 using Core = Hearthstone_Deck_Tracker.API.Core;
 using Card = Hearthstone_Deck_Tracker.Hearthstone.Card;
@@ -42,7 +38,7 @@ namespace HDT.Plugins.BattlecryHelper
             GameEvents.OnInMenu.Add(InMenu);
         }
 
-        private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void SettingsChanged(object sender, PropertyChangedEventArgs e)
         {
             _panel.RenderTransform = new ScaleTransform(Settings.Default.PanelScale / 100, Settings.Default.PanelScale / 100);
             _panel.Opacity = Settings.Default.PanelOpacity / 100;
@@ -69,7 +65,7 @@ namespace HDT.Plugins.BattlecryHelper
 
         internal void PlayerPlay(Card card)
         {
-            if (card.Mechanics.Any(a => a == "Battlecry")) {
+            if (card.Mechanics != null && card.Mechanics.Any(a => a == "Battlecry")) {
                 _view.Update(card);
             }
         }

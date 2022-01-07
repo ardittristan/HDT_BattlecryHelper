@@ -2,6 +2,9 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <HSDTPath>$([System.IO.Directory]::GetDirectories(`$(LocalAppData)\HearthstoneDeckTracker`, `app-*`)[0])</HSDTPath>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D40D658C-E767-46CD-8EB9-3BDD885EF887}</ProjectGuid>
@@ -9,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HDT.Plugins.BattlecryHelper</RootNamespace>
     <AssemblyName>BattlecryHelper</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -32,14 +35,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HearthDb">
-      <HintPath>..\..\..\..\AppData\Local\HearthstoneDeckTracker\app-1.6.5\HearthDb.dll</HintPath>
+      <HintPath>$(HSDTPath)\HearthDb.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="HearthstoneDeckTracker">
-      <HintPath>..\..\..\..\AppData\Local\HearthstoneDeckTracker\app-1.6.5\HearthstoneDeckTracker.exe</HintPath>
+      <HintPath>$(HSDTPath)\HearthstoneDeckTracker.exe</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=1.5.0.23, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+    <Reference Include="MahApps.Metro">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\AppData\Local\HearthstoneDeckTracker\app-1.6.5\MahApps.Metro.dll</HintPath>
+      <HintPath>$(HSDTPath)\MahApps.Metro.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

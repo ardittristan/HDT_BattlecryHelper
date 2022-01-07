@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using MahApps.Metro.Controls;
 using Hearthstone_Deck_Tracker;
-using HDT.Plugins.BattlecryHelper;
 
 namespace HDT.Plugins.BattlecryHelper
 {
